@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "edu.eci.arriendamestamobile"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "edu.eci.arriendamestamobile"
