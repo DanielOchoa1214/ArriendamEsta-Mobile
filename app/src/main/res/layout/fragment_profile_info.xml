@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1"
+    android:padding="8dp">
+    <TableRow>
+        <TextView
+            android:id="@+id/email_row"
+            android:text="@string/email_row_label"
+            android:padding="3dp" />
+        <TextView
+            android:id="@+id/email_row_value"
+            android:gravity="end"
+            android:padding="3dp" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/contact_row"
+            android:text="@string/numero_de_contacto_row_label"
+            android:padding="3dp" />
+        <TextView
+            android:id="@+id/contact_row_value"
+            android:gravity="end"
+            android:padding="3dp" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/age_row"
+            android:text="@string/edad_row_label"
+            android:padding="3dp" />
+        <TextView
+            android:id="@+id/age_row_value"
+            android:gravity="end"
+            android:padding="3dp" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:id="@+id/gender_row"
+            android:text="@string/genero_row_label"
+            android:padding="3dp" />
+        <TextView
+            android:id="@+id/gender_row_value"
+            android:gravity="end"
+            android:padding="3dp" />
+    </TableRow>
+</TableLayout>

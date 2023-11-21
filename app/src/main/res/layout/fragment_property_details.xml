@@ -22,6 +22,7 @@
         app:layout_constraintVertical_bias="0.076" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/el_casoplon"
@@ -43,10 +44,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.324"
-        app:layout_constraintStart_toStartOf=""
+        app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.215"
-        app:srcCompat="@drawable/elcasoplon"/>
+        app:srcCompat="@drawable/elcasoplon" />
 
     <TextView
         android:id="@+id/valor"
