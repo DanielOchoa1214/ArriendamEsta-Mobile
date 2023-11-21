@@ -3,4 +3,14 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="el_casoplon">El Casoplon</string>
+    <string name="propiedad_en_arriendo">Propiedad en Arriendo</string>
+    <string name="pesos">1\'900.000</string>
+    <string name="descripcion">Casa con excelente ubicacion, arriendala no piedas esta excelente oportunidad</string>
+    <string name="valor">Valor:</string>
+    <string name="metros_cuadrados">Metros Cuadrados:</string>
+    <string name="m2valor">1500</string>
+    <string name="ubicacion">Ubicacion:</string>
+    <string name="ubicacion_valor">Subayork</string>
+    <string name="hacer_peticion">Hacer Peticion</string>
 </resources>
