@@ -14,8 +14,7 @@
         android:layout_marginStart="16dp"
         android:contentDescription="@string/profile_name"
         android:text="@string/profile_name_placeholder"
-        android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/profile_img"
         app:layout_constraintTop_toTopOf="parent" />
@@ -67,9 +66,12 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/profile_fragment_view"
+        android:name="edu.eci.arriendamestamobile.ui.profileInfo.ProfileInfoFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tabLayout"
-        android:name="edu.eci.arriendamestamobile.ui.profileInfo.ProfileInfoFragment" />
+        tools:layout="@layout/fragment_profile_info" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

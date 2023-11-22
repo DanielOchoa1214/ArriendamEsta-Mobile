@@ -14,17 +14,11 @@
     <fragment
         android:id="@+id/navigation_profile"
         android:name="edu.eci.arriendamestamobile.ui.profile.ProfileFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="edu.eci.arriendamestamobile.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
-
-    <fragment
-        android:id="@+id/navigation_logout"
         android:name="edu.eci.arriendamestamobile.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />

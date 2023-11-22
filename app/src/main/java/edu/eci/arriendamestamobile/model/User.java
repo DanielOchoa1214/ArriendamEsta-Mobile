@@ -1,4 +1,4 @@
-package edu.eci.arriendamestamobile.data.user;
+package edu.eci.arriendamestamobile.model;
 
 import java.util.Date;
 

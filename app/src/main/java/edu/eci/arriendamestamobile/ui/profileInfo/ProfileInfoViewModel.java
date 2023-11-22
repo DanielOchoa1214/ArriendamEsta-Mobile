@@ -6,12 +6,8 @@ import androidx.lifecycle.ViewModel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
 
-import edu.eci.arriendamestamobile.data.user.User;
+import edu.eci.arriendamestamobile.model.User;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

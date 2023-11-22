@@ -42,7 +42,7 @@ public class ProfileInfoFragment extends Fragment {
             contactRowValue.setText(userInfo.getPhoneNumber());
 
             TextView ageRowValue = binding.ageRowValue;
-            ageRowValue.setText(getAge(userInfo.getBirthDate()));
+            // ageRowValue.setText(getAge(userInfo.getBirthDate()));
 
             TextView genderRowValue = binding.genderRowValue;
             genderRowValue.setText(userInfo.getGender());
