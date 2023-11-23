@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">ArriendamEstaMobile</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_profile">Perfil</string>
+    <string name="title_notifications">Peticiones</string>
+    <string name="title_log_out">Cerrar Sesion</string>
     <string name="el_casoplon">El Casoplon</string>
     <string name="propiedad_en_arriendo">Propiedad en Arriendo</string>
     <string name="pesos">1\'900.000</string>
@@ -13,4 +14,15 @@
     <string name="ubicacion">Ubicacion:</string>
     <string name="ubicacion_valor">Subayork</string>
     <string name="hacer_peticion">Hacer Peticion</string>
+    <string name="profile_name">profile_name</string>
+    <string name="profile_name_placeholder">Tanjiro Kamado</string>
+    <string name="profile_image_description">Profile Image</string>
+    <string name="calificacion">Calificación</string>
+    <string name="datos">Datos</string>
+    <string name="reviews">Reviews</string>
+    <string name="inmuebles">Inmuebles</string>
+    <string name="genero_row_label">Genero</string>
+    <string name="edad_row_label">Edad</string>
+    <string name="numero_de_contacto_row_label">Numero de contacto</string>
+    <string name="email_row_label">Email</string>
 </resources>

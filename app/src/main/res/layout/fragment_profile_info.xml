@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:stretchColumns="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2">
+
+        <TableRow
+            android:background="@color/pink_soft"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/email_row"
+                android:padding="3dp"
+                android:text="@string/email_row_label"
+                android:textColor="@color/black_strong" />
+
+            <TextView
+                android:id="@+id/email_row_value"
+                android:gravity="end"
+                android:padding="3dp"
+                android:textColor="@color/black_strong" />
+        </TableRow>
+
+        <TableRow
+            android:background="@drawable/border"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/contact_row"
+                android:padding="3dp"
+                android:text="@string/numero_de_contacto_row_label"
+                android:textColor="@color/black_strong" />
+
+            <TextView
+                android:id="@+id/contact_row_value"
+                android:gravity="end"
+                android:padding="3dp"
+                android:textColor="@color/black_strong" />
+        </TableRow>
+
+        <TableRow
+            android:background="@color/pink_soft"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/age_row"
+                android:padding="3dp"
+                android:text="@string/edad_row_label"
+                android:textColor="@color/black_strong" />
+
+            <TextView
+                android:id="@+id/age_row_value"
+                android:gravity="end"
+                android:padding="3dp"
+                android:textColor="@color/black_strong" />
+        </TableRow>
+
+        <TableRow
+            android:background="@drawable/border"
+            android:paddingVertical="8dp">
+
+            <TextView
+                android:id="@+id/gender_row"
+                android:padding="3dp"
+                android:text="@string/genero_row_label"
+                android:textColor="@color/black_strong" />
+
+            <TextView
+                android:id="@+id/gender_row_value"
+                android:gravity="end"
+                android:padding="3dp"
+                android:textColor="@color/black_strong" />
+        </TableRow>
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
