@@ -1,12 +1,19 @@
 package edu.eci.arriendamestamobile.ui.profile;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import java.util.logging.Level;
+
 import edu.eci.arriendamestamobile.model.User;
 import edu.eci.arriendamestamobile.repository.interfaces.UserApiService;
 import edu.eci.arriendamestamobile.repository.utils.RetrofitService;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -18,7 +25,22 @@ public class ProfileViewModel extends ViewModel {
 
     public ProfileViewModel() {
         user = new MutableLiveData<>();
-        user.setValue(getTestData());
+        getApiData();
+    }
+
+    private void getApiData(){
+        Call<User> userCall = userApiService.getUserById("u1");
+        userCall.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                user.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                user.postValue(null);
+            }
+        });
     }
 
     private User getTestData(){
