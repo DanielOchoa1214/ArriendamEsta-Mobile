@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel;
 import java.util.logging.Level;
 
 import edu.eci.arriendamestamobile.model.User;
+import edu.eci.arriendamestamobile.repository.impl.UserRepository;
 import edu.eci.arriendamestamobile.repository.interfaces.UserApiService;
 import edu.eci.arriendamestamobile.repository.utils.RetrofitService;
 import retrofit2.Call;
@@ -19,34 +20,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ProfileViewModel extends ViewModel {
 
-    private final MutableLiveData<User> user;
-    private final UserApiService userApiService = RetrofitService.getUserInterface();
+    private MutableLiveData<User> user;
+    private final UserRepository repository = UserRepository.getInstance();
 
 
     public ProfileViewModel() {
-        user = new MutableLiveData<>();
-        getApiData();
+        getUserById("u1");
     }
 
-    private void getApiData(){
-        Call<User> userCall = userApiService.getUserById("u1");
-        userCall.enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                user.setValue(response.body());
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                user.postValue(null);
-            }
-        });
-    }
-
-    private User getTestData(){
-        User test = new User();
-        test.setName("TU MADRE");
-        return test;
+    public void getUserById(String id){
+        user = repository.getUserById(id);
     }
 
     public LiveData<User> getUser() {
