@@ -1,5 +1,10 @@
 package edu.eci.arriendamestamobile.model;
 
+import android.os.Build;
+import android.util.Log;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 public class User {
@@ -7,9 +12,9 @@ public class User {
     private String name;
     private String email;
     private String phoneNumber;
-    private Date birthDate;
+    private String birthDate;
     private String gender;
-    private String status;
+    private long age = -1;
 
     public String getId() {
         return id;
@@ -43,13 +48,16 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
+        setAge(birthDate);
         this.birthDate = birthDate;
     }
+
+
 
     public String getGender() {
         return gender;
@@ -57,5 +65,15 @@ public class User {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public long getAge() {
+        return age;
+    }
+
+    public void setAge(String birthDate) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            this.age = ChronoUnit.YEARS.between(LocalDate.parse(birthDate.substring(0, 10)), LocalDate.now());
+        }
     }
 }
