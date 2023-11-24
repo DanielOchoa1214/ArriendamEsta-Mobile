@@ -25,4 +25,9 @@
     <string name="edad_row_label">Edad</string>
     <string name="numero_de_contacto_row_label">Numero de contacto</string>
     <string name="email_row_label">Email</string>
+    <string name="zenitsu">Zenitsu</string>
+    <string name="star_icon">Star icon</string>
+    <string name="review_content_placeholder">Le pongo 5 estrellas solo porque me gusta su hermana</string>
+    <string name="review_score_placeholder">5</string>
+    <string name="profile_picture_of_review">Profile picture of review</string>
 </resources>
