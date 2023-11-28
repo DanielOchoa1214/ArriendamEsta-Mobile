@@ -1,6 +1,6 @@
 package edu.eci.arriendamestamobile.repository.utils;
 
-import edu.eci.arriendamestamobile.repository.interfaces.Service;
+import edu.eci.arriendamestamobile.repository.interfaces.ReviewsApiService;
 import edu.eci.arriendamestamobile.repository.interfaces.UserApiService;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -14,5 +14,9 @@ public class RetrofitService {
 
     public static UserApiService getUserInterface() {
         return retrofit.create(UserApiService.class);
+    }
+
+    public static ReviewsApiService getReviewInterface(){
+        return retrofit.create(ReviewsApiService.class);
     }
 }

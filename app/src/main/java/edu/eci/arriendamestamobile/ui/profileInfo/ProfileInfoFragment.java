@@ -49,13 +49,6 @@ public class ProfileInfoFragment extends Fragment {
         });
     }
 
-    private int getAge(Date birthDate){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            return Period.between(birthDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), LocalDate.now()).getYears();
-        }
-        return 0;
-    }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();

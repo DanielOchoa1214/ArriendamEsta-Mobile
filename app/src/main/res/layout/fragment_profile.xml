@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/profile_name" />
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
+        android:id="@+id/profile_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -48,30 +48,29 @@
         app:tabSelectedTextColor="@color/pink_strong">
 
         <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/datos" />
 
         <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/reviews" />
 
         <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/inmuebles" />
 
     </com.google.android.material.tabs.TabLayout>
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/profile_fragment_view"
-        android:name="edu.eci.arriendamestamobile.ui.profileInfo.ProfileInfoFragment"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/profile_view_pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabLayout"
-        tools:layout="@layout/fragment_profile_info" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_tabs" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
