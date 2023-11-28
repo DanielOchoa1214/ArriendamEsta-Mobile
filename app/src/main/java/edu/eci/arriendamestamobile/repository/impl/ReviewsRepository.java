@@ -44,10 +44,22 @@ public class ReviewsRepository {
 
 
     private List<Review> placeholderReview(){
-        Review r = new Review();
-        r.setName("Zenitsu");
-        r.setContent("Le pongo 5 estrellas solo porque me quiero comer a su hermana");
-        r.setStars(5);
-        return Collections.singletonList(r);
+        Review r1 = new Review();
+        r1.setName("Zenitsu");
+        r1.setContent("Le pongo 5 estrellas solo porque me quiero comer a su hermana");
+        r1.setStars(5);
+        Review r2 = new Review();
+        r2.setName("Inosuke");
+        r2.setContent("1 estrellas porque no quiere pelear conmigo todo el tiempo");
+        r2.setStars(1);
+        Review r3 = new Review();
+        r3.setName("Musan Kibutsuyi");
+        r3.setContent("me quiere matar :(");
+        r3.setStars(0);
+        Review r4 = new Review();
+        r4.setName("Uzui");
+        r4.setContent("4 estrellas me cae muy bien");
+        r4.setStars(4);
+        return Arrays.asList(r1, r2, r3, r4);
     }
 }
