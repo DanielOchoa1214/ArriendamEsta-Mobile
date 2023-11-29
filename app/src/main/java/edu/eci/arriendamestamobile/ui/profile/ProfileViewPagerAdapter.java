@@ -7,6 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import edu.eci.arriendamestamobile.ui.profileInfo.ProfileInfoFragment;
 import edu.eci.arriendamestamobile.ui.properties.PropertiesFragment;
+import edu.eci.arriendamestamobile.ui.propertyDetails.PropertyDetailsFragment;
 import edu.eci.arriendamestamobile.ui.reviews.ReviewFragment;
 
 public class ProfileViewPagerAdapter extends FragmentStateAdapter {
@@ -30,6 +31,8 @@ public class ProfileViewPagerAdapter extends FragmentStateAdapter {
                 return ReviewFragment.getInstance(target, id);
             case 2:
                 return new PropertiesFragment();
+            case 3:
+                return new PropertyDetailsFragment();
             default:
                 return new ProfileInfoFragment();
         }
