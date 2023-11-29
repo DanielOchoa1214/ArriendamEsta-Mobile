@@ -1,12 +1,13 @@
 package edu.eci.arriendamestamobile.repository.utils;
 
+import edu.eci.arriendamestamobile.repository.interfaces.PropertyApiService;
 import edu.eci.arriendamestamobile.repository.interfaces.ReviewsApiService;
 import edu.eci.arriendamestamobile.repository.interfaces.UserApiService;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitService {
-    private static final String BASE_URL = "http://localhost:8080/";
+    private static final String BASE_URL = "http://10.0.2.2:8080/";
     private static final Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -18,5 +19,9 @@ public class RetrofitService {
 
     public static ReviewsApiService getReviewInterface(){
         return retrofit.create(ReviewsApiService.class);
+    }
+
+    public static PropertyApiService getPropertyInterface(){
+        return retrofit.create(PropertyApiService.class);
     }
 }
