@@ -1,5 +1,6 @@
 package edu.eci.arriendamestamobile.repository.utils;
 
+import edu.eci.arriendamestamobile.repository.interfaces.AuthApiService;
 import edu.eci.arriendamestamobile.repository.interfaces.ReviewsApiService;
 import edu.eci.arriendamestamobile.repository.interfaces.UserApiService;
 import retrofit2.Retrofit;
@@ -18,5 +19,9 @@ public class RetrofitService {
 
     public static ReviewsApiService getReviewInterface(){
         return retrofit.create(ReviewsApiService.class);
+    }
+
+    public static AuthApiService getAuthInterface(){
+        return retrofit.create(AuthApiService.class);
     }
 }
