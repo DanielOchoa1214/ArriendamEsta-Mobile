@@ -11,9 +11,9 @@
     <string name="valor">Valor:</string>
     <string name="metros_cuadrados">Metros Cuadrados:</string>
     <string name="m2valor">1500</string>
-    <string name="ubicacion">Ubicación:</string>
+    <string name="ubicacion">Ubicacion:</string>
     <string name="ubicacion_valor">Subayork</string>
-    <string name="hacer_peticion">Hacer Petición</string>
+    <string name="hacer_peticion">Hacer Peticion</string>
     <string name="profile_name">profile_name</string>
     <string name="profile_name_placeholder">Tanjiro Kamado</string>
     <string name="profile_image_description">Profile Image</string>

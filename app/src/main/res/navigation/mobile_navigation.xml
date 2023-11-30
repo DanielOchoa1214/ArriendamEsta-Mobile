@@ -7,19 +7,31 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="edu.eci.arriendamestamobile.ui.home.HomeFragment"
+        android:name="edu.eci.arriendamestamobile.ui.fragments.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="edu.eci.arriendamestamobile.ui.profile.ProfileFragment"
+        android:name="edu.eci.arriendamestamobile.ui.fragments.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="edu.eci.arriendamestamobile.ui.notifications.NotificationsFragment"
+        android:name="edu.eci.arriendamestamobile.ui.fragments.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <activity
+        android:id="@+id/navigation_login"
+        android:name="edu.eci.arriendamestamobile.ui.activities.LoginActivity"
+        android:label="@string/login"
+        tools:layout="@layout/activity_login"/>
+
+    <activity
+        android:id="@+id/navigation_main"
+        android:name="edu.eci.arriendamestamobile.ui.activities.MainActivity"
+        android:label="Main Activity"
+        tools:layout="@layout/activity_main"/>
 </navigation>
