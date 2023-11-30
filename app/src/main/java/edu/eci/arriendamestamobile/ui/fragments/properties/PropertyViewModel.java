@@ -1,4 +1,4 @@
-package edu.eci.arriendamestamobile.ui.properties;
+package edu.eci.arriendamestamobile.ui.fragments.properties;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -22,10 +22,13 @@ public class PropertyViewModel extends ViewModel {
     }
 
     public void getProperties(Map<String, String> filters) {
-        properties = repository.getProperties(filters);
+        properties = repository.getPropertiesProfile(filters);
     }
+
 
     public LiveData<List<Property>> getProperties() {
         return properties;
     }
+
+
 }

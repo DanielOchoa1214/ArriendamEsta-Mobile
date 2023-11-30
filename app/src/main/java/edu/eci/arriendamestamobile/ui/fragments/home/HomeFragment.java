@@ -1,6 +1,7 @@
 package edu.eci.arriendamestamobile.ui.fragments.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +14,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import edu.eci.arriendamestamobile.R;
 import edu.eci.arriendamestamobile.databinding.FragmentHomeBinding;
-import edu.eci.arriendamestamobile.ui.properties.PropertyAdapter;
-import edu.eci.arriendamestamobile.ui.properties.PropertyViewModel;
+import edu.eci.arriendamestamobile.ui.fragments.properties.PropertyAdapter;
+import edu.eci.arriendamestamobile.ui.fragments.properties.PropertyViewModel;
+import edu.eci.arriendamestamobile.ui.fragments.utils.HomeViewModelFactory;
 import edu.eci.arriendamestamobile.ui.utils.PropertyViewModelFactory;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,20 +30,21 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashMap;
 import java.util.Map;
 
 
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    private PropertyViewModel propertyViewModel;
-    private Map<String, String> filters;
+    private HomeViewModel homeViewModel;
+    private Map<String, String> filters = new HashMap<>();
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        propertyViewModel = new ViewModelProvider(this,
-                new PropertyViewModelFactory(this.requireActivity().getApplication(), filters))
-                .get(PropertyViewModel.class);
+        homeViewModel = new ViewModelProvider(this,
+                new HomeViewModelFactory(this.requireActivity().getApplication(), filters))
+                .get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         Spinner spinnerLocations = binding.spinnerLocations;
@@ -53,7 +56,7 @@ public class HomeFragment extends Fragment {
         spinnerLocations.setAdapter(adapter);
         //
 
-        propertyViewModel.getProperties().observe(getViewLifecycleOwner(), properties -> {
+        homeViewModel.getProperties().observe(getViewLifecycleOwner(), properties -> {
             RecyclerView recyclerView = binding.propertyList;
             recyclerView.setAdapter(new PropertyAdapter(properties, this.getContext()));
         });
@@ -65,14 +68,15 @@ public class HomeFragment extends Fragment {
     }
 
     public void updateListProperties() {
-        try {
+        filters = new HashMap<>();
+
+        if (!binding.spinnerLocations.getSelectedItem().toString().equals("Ninguno")) {
             filters.put("location", binding.spinnerLocations.getSelectedItem().toString());
-            filters.put("squareMeters", binding.minSquareMeters.toString());
-            filters.put("price", binding.minPrice.toString());
-            propertyViewModel.getProperties(filters);
-        } catch (Exception e) {
-            propertyViewModel.getProperties();
         }
+        filters.put("squareMeters", binding.minSquareMeters.getText().toString().equals("") ? "0" : binding.minSquareMeters.getText().toString());
+        filters.put("price", binding.minPrice.getText().toString().equals("") ? "0" : binding.minPrice.getText().toString());
+
+        homeViewModel.getProperties(filters);
     }
 
     @Override

@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 import edu.eci.arriendamestamobile.model.Property;
 
@@ -21,13 +22,15 @@ public class PropertyRepository {
     private static final PropertyApiService propertyApiService = RetrofitService.getPropertyInterface();
     private static PropertyRepository repository;
     private MutableLiveData<List<Property>> properties = new MutableLiveData<>(placeholderProperties());
+    private MutableLiveData<List<Property>> propertiesProfile = new MutableLiveData<>(placeholderProperties());
     private final MutableLiveData<Property> property = new MutableLiveData<>(placeholderProperty());
     public static PropertyRepository getInstance(){
         if(repository == null) repository = new PropertyRepository();
         return repository;
     }
 
-    public MutableLiveData<List<Property>> getProperties(Map<String, String> filters){
+    public MutableLiveData<List<Property>> getPropertiesProfile(Map<String, String> filters) {
+        //Log.d("Properties Repository", filters.toString());
         Call<List<Property>> reviewsCall = propertyApiService.getProperties(filters);
         reviewsCall.enqueue(new Callback<List<Property>>() {
             @Override
@@ -42,6 +45,24 @@ public class PropertyRepository {
             }
         });
         return properties;
+    }
+
+    public MutableLiveData<List<Property>> getPropertiesHome(Map<String, String> filters) {
+        //Log.d("Properties Repository", filters.toString());
+        Call<List<Property>> reviewsCall = propertyApiService.getProperties(filters);
+        reviewsCall.enqueue(new Callback<List<Property>>() {
+            @Override
+            public void onResponse(Call<List<Property>> call, Response<List<Property>> response) {
+                Log.d("PropertyRepository", response.body().toString());
+                propertiesProfile.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Property>> call, Throwable t) {
+                Log.d("Log.DEBUG", "Me ñañe", t);
+            }
+        });
+        return propertiesProfile;
     }
 
     public MutableLiveData<Property> getPropertyById(String id){

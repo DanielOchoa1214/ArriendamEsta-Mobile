@@ -6,21 +6,24 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 
 import edu.eci.arriendamestamobile.databinding.FragmentPropertiesBinding;
 import edu.eci.arriendamestamobile.ui.utils.PropertyViewModelFactory;
-import edu.eci.arriendamestamobile.ui.properties.PropertyViewModel;
-import edu.eci.arriendamestamobile.ui.properties.PropertyAdapter;
+import edu.eci.arriendamestamobile.ui.fragments.properties.PropertyViewModel;
+import edu.eci.arriendamestamobile.ui.fragments.properties.PropertyAdapter;
 
 public class PropertiesFragment extends Fragment {
 
@@ -45,11 +48,11 @@ public class PropertiesFragment extends Fragment {
 
         PropertyViewModel propertyViewModel = new ViewModelProvider(this,
                 new PropertyViewModelFactory(this.requireActivity().getApplication(), filters))
-                .get(edu.eci.arriendamestamobile.ui.properties.PropertyViewModel.class);
+                .get(PropertyViewModel.class);
 
         propertyViewModel.getProperties().observe(getViewLifecycleOwner(), properties -> {
             RecyclerView recyclerView = binding.propertyList;
-            recyclerView.setAdapter(new edu.eci.arriendamestamobile.ui.properties.PropertyAdapter(properties, this.getContext()));
+            recyclerView.setAdapter(new PropertyAdapter(properties, this.getContext()));
         });
 
         return root;
@@ -62,7 +65,7 @@ public class PropertiesFragment extends Fragment {
         Bundle args = new Bundle();
         args.putStringArrayList("keys", new ArrayList<>(filters.keySet()));
         args.putStringArrayList("values", new ArrayList<>(filters.values()));
-        p.setArguments(new Bundle());
+        p.setArguments(args);
         return p;
     }
 }

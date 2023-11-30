@@ -1,4 +1,4 @@
-package edu.eci.arriendamestamobile.ui.properties;
+package edu.eci.arriendamestamobile.ui.fragments.properties;
 
 import android.content.Context;
 import android.view.LayoutInflater;

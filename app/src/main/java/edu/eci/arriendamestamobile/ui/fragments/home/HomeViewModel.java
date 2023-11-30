@@ -11,7 +11,7 @@ import edu.eci.arriendamestamobile.model.Property;
 import edu.eci.arriendamestamobile.repository.impl.PropertyRepository;
 
 public class HomeViewModel extends ViewModel {
-    private MutableLiveData<List<Property>> properties = new MutableLiveData<>();
+    private MutableLiveData<List<Property>> propertiesHome = new MutableLiveData<>();
     private final PropertyRepository repository = PropertyRepository.getInstance();
 
     public HomeViewModel(Map<String, String> filters) {
@@ -19,10 +19,10 @@ public class HomeViewModel extends ViewModel {
     }
 
     public void getProperties(Map<String, String> filters) {
-        properties = repository.getProperties(filters);
+        propertiesHome = repository.getPropertiesHome(filters);
     }
 
     public LiveData<List<Property>> getProperties() {
-        return properties;
+        return propertiesHome;
     }
 }
