@@ -11,9 +11,9 @@
     <string name="valor">Valor:</string>
     <string name="metros_cuadrados">Metros Cuadrados:</string>
     <string name="m2valor">1500</string>
-    <string name="ubicacion">Ubicacion:</string>
+    <string name="ubicacion">Ubicación:</string>
     <string name="ubicacion_valor">Subayork</string>
-    <string name="hacer_peticion">Hacer Peticion</string>
+    <string name="hacer_peticion">Hacer Petición</string>
     <string name="profile_name">profile_name</string>
     <string name="profile_name_placeholder">Tanjiro Kamado</string>
     <string name="profile_image_description">Profile Image</string>
@@ -32,4 +32,13 @@
     <string name="profile_picture_of_review">Profile picture of review</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="min">min</string>
+    <string name="max">max</string>
+
+    <string-array name="locations">
+        <item>Suba</item>
+        <item>en barbieland</item>
+        <item>Usme</item>
+        <item>Fontibon</item>
+    </string-array>
 </resources>

@@ -1,4 +1,4 @@
-package edu.eci.arriendamestamobile.ui.home;
+package edu.eci.arriendamestamobile.ui.properties;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -8,13 +8,16 @@ import java.util.List;
 import java.util.Map;
 
 import edu.eci.arriendamestamobile.model.Property;
+import edu.eci.arriendamestamobile.model.Review;
 import edu.eci.arriendamestamobile.repository.impl.PropertyRepository;
+import edu.eci.arriendamestamobile.repository.impl.ReviewsRepository;
 
-public class HomeViewModel extends ViewModel {
+public class PropertyViewModel extends ViewModel {
+
     private MutableLiveData<List<Property>> properties = new MutableLiveData<>();
     private final PropertyRepository repository = PropertyRepository.getInstance();
 
-    public HomeViewModel(Map<String, String> filters) {
+    public PropertyViewModel(Map<String, String> filters) {
         getProperties(filters);
     }
 

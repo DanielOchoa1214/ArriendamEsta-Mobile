@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
-    tools:context=".ui.home.HomeFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Spinner
         android:id="@+id/spinner_locations"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
         android:padding="2dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/label_ubication"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,9 +48,8 @@
 
     <EditText
         android:id="@+id/min_square_meters"
-        android:layout_width="0dp"
+        android:layout_width="80dp"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
         android:autofillHints="@string/min"
         android:ems="10"
         android:hint="@string/min"
@@ -66,38 +61,39 @@
 
     <EditText
         android:id="@+id/min_price"
-        android:layout_width="0dp"
+        android:layout_width="80dp"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:autofillHints="@string/min"
         android:ems="10"
         android:hint="@string/min"
         android:inputType="number"
         app:layout_constraintBaseline_toBaselineOf="@+id/label_price"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toEndOf="@+id/barrier2" />
+        app:layout_constraintStart_toEndOf="@+id/barrier2"
+        android:autofillHints="@string/min" />
 
-    <Button
-        android:id="@+id/search_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_price" />
+    <EditText
+        android:id="@+id/max_price"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:autofillHints="@string/max"
+        android:ems="10"
+        android:hint="@string/max"
+        android:inputType="number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/min_price"
+        app:layout_constraintStart_toEndOf="@+id/min_price" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/property_list"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:scrollbars="vertical"
-        app:layoutManager="LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_button" />
+    <EditText
+        android:id="@+id/max_square_meters"
+        android:layout_width="80dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:autofillHints="@string/max"
+        android:ems="10"
+        android:hint="@string/max"
+        android:inputType="number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/min_square_meters"
+        app:layout_constraintStart_toEndOf="@+id/min_square_meters" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
