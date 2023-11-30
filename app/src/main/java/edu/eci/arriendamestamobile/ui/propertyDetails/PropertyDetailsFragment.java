@@ -11,9 +11,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import edu.eci.arriendamestamobile.R;
-import edu.eci.arriendamestamobile.databinding.FragmentPropertiesBinding;
+
 import edu.eci.arriendamestamobile.databinding.FragmentPropertyDetailsBinding;
-import edu.eci.arriendamestamobile.ui.profile.ProfileViewModel;
 
 public class PropertyDetailsFragment extends Fragment {
 

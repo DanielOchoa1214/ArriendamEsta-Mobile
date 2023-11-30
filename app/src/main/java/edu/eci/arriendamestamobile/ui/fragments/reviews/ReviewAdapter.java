@@ -14,7 +14,7 @@ import java.util.List;
 import edu.eci.arriendamestamobile.R;
 import edu.eci.arriendamestamobile.model.Review;
 
-public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>{
+public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder> {
 
     private List<Review> reviewList;
     private Context context;

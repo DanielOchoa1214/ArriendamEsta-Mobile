@@ -5,14 +5,19 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import edu.eci.arriendamestamobile.ui.profileInfo.ProfileInfoFragment;
-import edu.eci.arriendamestamobile.ui.properties.PropertiesFragment;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import edu.eci.arriendamestamobile.ui.fragments.profileInfo.ProfileInfoFragment;
+import edu.eci.arriendamestamobile.ui.fragments.properties.PropertiesFragment;
+import edu.eci.arriendamestamobile.ui.fragments.reviews.ReviewFragment;
 import edu.eci.arriendamestamobile.ui.propertyDetails.PropertyDetailsFragment;
-import edu.eci.arriendamestamobile.ui.reviews.ReviewFragment;
 
 public class ProfileViewPagerAdapter extends FragmentStateAdapter {
     private String id;
     private String target;
+    private Map<String, String> filters = new HashMap<>();
     public ProfileViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
     }
@@ -21,6 +26,7 @@ public class ProfileViewPagerAdapter extends FragmentStateAdapter {
         super(fragmentActivity);
         this.id = id;
         this.target = target;
+        this.filters.put("homeOwnerId", id);
     }
 
     @NonNull
@@ -30,9 +36,7 @@ public class ProfileViewPagerAdapter extends FragmentStateAdapter {
             case 1:
                 return ReviewFragment.getInstance(target, id);
             case 2:
-                return new PropertiesFragment();
-            case 3:
-                return new PropertyDetailsFragment();
+                return PropertiesFragment.getInstance(filters);
             default:
                 return new ProfileInfoFragment();
         }

@@ -40,7 +40,7 @@ public class ReviewFragment extends Fragment {
         return root;
     }
 
-    public static ReviewFragment getInstance(String target, String id){
+    public static ReviewFragment getInstance(String target, String id) {
         ReviewFragment r = new ReviewFragment();
         Bundle args = new Bundle();
         args.putString("target", target);

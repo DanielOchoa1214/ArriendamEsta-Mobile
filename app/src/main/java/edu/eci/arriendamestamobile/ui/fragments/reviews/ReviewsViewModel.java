@@ -14,13 +14,14 @@ public class ReviewsViewModel extends ViewModel {
     private MutableLiveData<List<Review>> reviews = new MutableLiveData<>();
     private final ReviewsRepository repository = ReviewsRepository.getInstance();
 
-    public ReviewsViewModel(String target, String id){
+    public ReviewsViewModel(String target, String id) {
         getReviews(target, id);
     }
 
-    public void getReviews(String target, String id){
+    public void getReviews(String target, String id) {
         reviews = repository.getReviews(target, id);
     }
+
     public LiveData<List<Review>> getReviews() {
         return reviews;
     }

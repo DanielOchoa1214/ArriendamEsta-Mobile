@@ -32,7 +32,7 @@ public class ProfileFragment extends Fragment {
         return binding.getRoot();
     }
 
-    private void setUpTabs(){
+    private void setUpTabs() {
         TabLayout tabLayout = binding.profileTabs;
         ViewPager2 viewPager2 = binding.profileViewPager;
         ProfileViewPagerAdapter viewPagerAdapter = new ProfileViewPagerAdapter(this.requireActivity(), "u1", "user");
@@ -43,11 +43,14 @@ public class ProfileFragment extends Fragment {
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager2.setCurrentItem(tab.getPosition());
             }
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {}
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {}
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
         });
 
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
@@ -59,7 +62,7 @@ public class ProfileFragment extends Fragment {
         });
     }
 
-    private void setFragmentContent(ProfileViewModel profileViewModel){
+    private void setFragmentContent(ProfileViewModel profileViewModel) {
         profileViewModel.getUser().observe(getViewLifecycleOwner(), user -> {
             TextView profileName = binding.profileName;
             profileName.setText(user.getName());

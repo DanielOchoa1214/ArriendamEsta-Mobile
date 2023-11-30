@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import java.util.HashMap;
+
 import edu.eci.arriendamestamobile.model.Property;
 import edu.eci.arriendamestamobile.repository.impl.PropertyRepository;
 
