@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import edu.eci.arriendamestamobile.ui.home.HomeViewModel;
+
 import edu.eci.arriendamestamobile.R;
 import edu.eci.arriendamestamobile.databinding.FragmentHomeBinding;
 import edu.eci.arriendamestamobile.ui.properties.PropertyAdapter;

@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import java.util.Map;
 
 import edu.eci.arriendamestamobile.ui.properties.PropertyViewModel;
-import edu.eci.arriendamestamobile.ui.reviews.ReviewsViewModel;
+
 
 public class PropertyViewModelFactory implements ViewModelProvider.Factory {
 

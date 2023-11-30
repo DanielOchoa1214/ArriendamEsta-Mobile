@@ -41,4 +41,27 @@
         <item>Usme</item>
         <item>Fontibon</item>
     </string-array>
+    <string name="login">Login</string>
+    <string name="background_image_of_login">Background image of login</string>
+    <string name="arriendamesta">ArriendamEsta</string>
+    <string name="como_esta_ninguna">Como esta ninguna</string>
+    <string name="usuario_label">Usuario:</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasena">Contraseña:</string>
+    <string name="contrasena_placeholder">Contraseña</string>
+    <string name="volver">Volver</string>
+    <string name="crea_tu_cuenta">Crea tu cuenta</string>
+    <string name="crear_usuario">Crear Usuario</string>
+    <string name="nombre">Nombre</string>
+    <string name="nombre_placeholder">Nombre:</string>
+    <string name="correo_placeholder">Correo:</string>
+    <string name="correo">Correo</string>
+    <string name="n_mero_telefonico">Número telefonico:</string>
+    <string name="n_mero_de_contacto">Número de contacto</string>
+    <string name="crear_cuenta">Crear cuenta</string>
+    <string name="fecha_de_nacimiento_placeholder">Fecha de nacimiento:</string>
+    <string name="fecha_de_nacimiento">Fecha de nacimiento</string>
+    <string name="genero_placeholder">Genero:</string>
+    <string name="confirmar_contrase_a_placeholder">Confirmar contraseña:</string>
+    <string name="confirmar_contrase_a">Confirmar contraseña</string>
 </resources>

@@ -3,7 +3,6 @@ package edu.eci.arriendamestamobile.ui.fragments.properties;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,25 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
+
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
-import edu.eci.arriendamestamobile.R;
-import edu.eci.arriendamestamobile.databinding.FragmentProfileReviewsBinding;
+
 import edu.eci.arriendamestamobile.databinding.FragmentPropertiesBinding;
-import edu.eci.arriendamestamobile.model.Property;
-import edu.eci.arriendamestamobile.repository.impl.PropertyRepository;
-import edu.eci.arriendamestamobile.ui.reviews.ReviewAdapter;
-import edu.eci.arriendamestamobile.ui.reviews.ReviewFragment;
-import edu.eci.arriendamestamobile.ui.reviews.ReviewsViewModel;
 import edu.eci.arriendamestamobile.ui.utils.PropertyViewModelFactory;
-import edu.eci.arriendamestamobile.ui.utils.ReviewsViewModelFactory;
+import edu.eci.arriendamestamobile.ui.properties.PropertyViewModel;
+import edu.eci.arriendamestamobile.ui.properties.PropertyAdapter;
 
 public class PropertiesFragment extends Fragment {
 
@@ -39,6 +29,7 @@ public class PropertiesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Bundle args = getArguments();
+
         if (args != null) {
 
             ArrayList<String> keys = args.getStringArrayList("keys");
@@ -54,11 +45,11 @@ public class PropertiesFragment extends Fragment {
 
         PropertyViewModel propertyViewModel = new ViewModelProvider(this,
                 new PropertyViewModelFactory(this.requireActivity().getApplication(), filters))
-                .get(PropertyViewModel.class);
+                .get(edu.eci.arriendamestamobile.ui.properties.PropertyViewModel.class);
 
         propertyViewModel.getProperties().observe(getViewLifecycleOwner(), properties -> {
             RecyclerView recyclerView = binding.propertyList;
-            recyclerView.setAdapter(new PropertyAdapter(properties, this.getContext()));
+            recyclerView.setAdapter(new edu.eci.arriendamestamobile.ui.properties.PropertyAdapter(properties, this.getContext()));
         });
 
         return root;

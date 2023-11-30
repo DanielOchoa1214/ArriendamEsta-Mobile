@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import edu.eci.arriendamestamobile.model.Property;
-import edu.eci.arriendamestamobile.model.Review;
+
 import edu.eci.arriendamestamobile.repository.interfaces.PropertyApiService;
 import edu.eci.arriendamestamobile.repository.utils.RetrofitService;
 import retrofit2.Call;
@@ -20,7 +20,8 @@ public class PropertyRepository {
 
     private static final PropertyApiService propertyApiService = RetrofitService.getPropertyInterface();
     private static PropertyRepository repository;
-    private MutableLiveData<List<Property>> properties = new MutableLiveData<>(placeholderProperty());
+    private MutableLiveData<List<Property>> properties = new MutableLiveData<>(placeholderProperties());
+    private final MutableLiveData<Property> property = new MutableLiveData<>(placeholderProperty());
     public static PropertyRepository getInstance(){
         if(repository == null) repository = new PropertyRepository();
         return repository;
@@ -43,7 +44,24 @@ public class PropertyRepository {
         return properties;
     }
 
-    private List<Property> placeholderProperty(){
+    public MutableLiveData<Property> getPropertyById(String id){
+        Call<Property> propertyCall = propertyApiService.getPropertyById(id);
+        propertyCall.enqueue(new Callback<Property>(){
+            @Override
+            public void onResponse(Call<Property> call, Response<Property> response) {
+                property.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Property> call, Throwable t) {
+                Log.d("Log.DEBUG", "Toy dañado en property", t);
+            }
+        });
+        return property;
+    }
+
+
+    private List<Property> placeholderProperties(){
         Property p1 = new Property();
         p1.setTitle("Casoplon");
         p1.setDescription("Le pongo 5 estrellas solo porque si");
@@ -69,5 +87,21 @@ public class PropertyRepository {
         p4.setSquareMeters(1000);
         p4.setPrice(1000);
         return Arrays.asList(p1, p2, p3, p4);
+    }
+
+    private Property placeholderProperty(){
+        Property p = new Property();
+        p.setTitle("Barbie House");
+        p.setId("p1");
+        p.setDescription("Casa con tantas habitaciones como barbies hay." +
+                "El agua falsa y los accesorios no vienen incluidos, todos" +
+                "los detalles en la casa son rosados de diferentes tonos," +
+                "el precio del canon de arrendamiento no incluye administracion");
+        p.setLocation("Barbieland");
+        p.setStateProperty("Disponible");
+        p.setPrice(10000000);
+        p.setSquareMeters(1200);
+        p.setHomeOwnerId("u1");
+        return p;
     }
 }
