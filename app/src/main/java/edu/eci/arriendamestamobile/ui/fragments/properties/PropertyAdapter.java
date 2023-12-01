@@ -55,10 +55,10 @@ public class PropertyAdapter extends RecyclerView.Adapter<PropertyAdapter.Proper
 
         public PropertyItemViewHolder(View view) {
             super(view);
-            title = view.findViewById(R.id.property_name);
-            location = view.findViewById(R.id.location_value);
-            square_meters = view.findViewById(R.id.square_meters_value);
-            price = view.findViewById(R.id.price_value);
+            title = view.findViewById(R.id.title_petition);
+            location = view.findViewById(R.id.author_value);
+            square_meters = view.findViewById(R.id.content_value);
+            price = view.findViewById(R.id.property_value);
         }
 
     }

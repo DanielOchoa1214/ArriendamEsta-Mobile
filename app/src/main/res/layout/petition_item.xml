@@ -10,17 +10,16 @@
 
     <TextView
         android:id="@+id/title_petition"
+        style="@style/subtitle"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="4dp"
-        android:text="nombre del apartamento"
-
-        android:textColor="@color/black_soft"
-        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:text="@string/peticion"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/author_value"
@@ -55,7 +54,6 @@
         android:text="TextView"
         android:textColor="@color/black_soft"
         android:textSize="11sp"
-        app:layout_constraintBottom_toTopOf="@+id/petition_details"
         app:layout_constraintStart_toStartOf="@+id/property_value"
         app:layout_constraintTop_toBottomOf="@+id/content_label" />
 
@@ -65,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:text="@string/ubicacion"
+        android:text="Autor:"
         android:textColor="@color/black_soft"
         android:textSize="11sp"
         android:textStyle="bold"
@@ -77,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/valor"
+        android:text="Propiedad:"
         android:textColor="@color/black_soft"
         android:textSize="11sp"
         android:textStyle="bold"
@@ -89,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/metros_cuadrados"
+        android:text="Descripción: "
         android:textColor="@color/black_soft"
         android:textSize="11sp"
         android:textStyle="bold"
@@ -100,27 +98,16 @@
         android:id="@+id/petition_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Detalles"
         android:textColor="@color/black_soft"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@id/square_meters_barrier"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:textColor="@color/black_soft"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/elcasoplon" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/title_petition"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/title_barrier"
