@@ -10,89 +10,87 @@
 
     <TextView
         android:id="@+id/title_petition"
+        style="@style/subtitle"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="4dp"
-        android:text="nombre del apartamento"
-
-        android:textColor="@color/black_soft"
-        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:text="@string/peticion_enviada"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/owner_value"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
         android:textColor="@color/black_soft"
         android:textSize="11sp"
         app:layout_constraintBottom_toTopOf="@+id/property_label"
-        app:layout_constraintStart_toStartOf="@+id/title_petition"
+        app:layout_constraintEnd_toStartOf="@id/limit_text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/author_label"
         app:layout_constraintTop_toBottomOf="@+id/author_label" />
 
     <TextView
         android:id="@+id/property_value"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
         android:textColor="@color/black_soft"
         android:textSize="11sp"
         app:layout_constraintBottom_toTopOf="@+id/content_label"
+        app:layout_constraintEnd_toStartOf="@id/limit_text"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/owner_value"
         app:layout_constraintTop_toBottomOf="@+id/property_label" />
 
     <TextView
         android:id="@+id/content_value"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
         android:textColor="@color/black_soft"
         android:textSize="11sp"
-        app:layout_constraintBottom_toTopOf="@+id/petition_accept"
+        app:layout_constraintEnd_toStartOf="@id/limit_text"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/property_value"
         app:layout_constraintTop_toBottomOf="@+id/content_label" />
 
     <TextView
         android:id="@+id/author_label"
+        style="@style/black_bold_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:text="@string/ubicacion"
-        android:textColor="@color/black_soft"
-        android:textSize="11sp"
-        android:textStyle="bold"
+        android:text="Enviada a:"
         app:layout_constraintStart_toStartOf="@+id/title_petition"
         app:layout_constraintTop_toBottomOf="@id/title_barrier" />
 
     <TextView
         android:id="@+id/property_label"
+        style="@style/black_bold_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/valor"
-        android:textColor="@color/black_soft"
-        android:textSize="11sp"
-        android:textStyle="bold"
+        android:text="Propiedad:"
         app:layout_constraintStart_toStartOf="@+id/author_label"
         app:layout_constraintTop_toBottomOf="@id/location_barrier" />
 
     <TextView
         android:id="@+id/content_label"
+        style="@style/black_bold_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/metros_cuadrados"
-        android:textColor="@color/black_soft"
-        android:textSize="11sp"
-        android:textStyle="bold"
+        android:text="Descripción: "
         app:layout_constraintStart_toStartOf="@+id/author_label"
         app:layout_constraintTop_toBottomOf="@id/price_barrier" />
 
@@ -100,27 +98,16 @@
         android:id="@+id/petition_accept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:text="Detalles"
-        android:textColor="@color/black_soft"
-        android:textSize="10sp"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@id/square_meters_barrier"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:textColor="@color/black_soft"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/elcasoplon" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/title_petition"
+        app:layout_constraintTop_toBottomOf="@+id/title_petition" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/title_barrier"
@@ -149,5 +136,12 @@
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="content_value" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/limit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        app:constraint_referenced_ids="petition_accept" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
