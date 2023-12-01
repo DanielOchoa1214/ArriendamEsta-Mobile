@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -16,18 +15,14 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import edu.eci.arriendamestamobile.databinding.FragmentNotificationsBinding;
 import edu.eci.arriendamestamobile.databinding.FragmentSubNotificationsBinding;
-import edu.eci.arriendamestamobile.ui.fragments.notifications.NotificationsFragment;
 import edu.eci.arriendamestamobile.ui.fragments.notifications.NotificationsViewModel;
-import edu.eci.arriendamestamobile.ui.fragments.properties.PropertyAdapter;
-import edu.eci.arriendamestamobile.ui.fragments.properties.PropertyViewModel;
-import edu.eci.arriendamestamobile.ui.fragments.utils.NotificationViewModelFactory;
-import edu.eci.arriendamestamobile.ui.utils.PropertyViewModelFactory;
 
 public class NotificationsSubFragment extends Fragment {
     private FragmentSubNotificationsBinding binding;
     private Map<String, String> filters = new HashMap<>();
+
+    private NotificationsViewModel notificationsViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -46,16 +41,25 @@ public class NotificationsSubFragment extends Fragment {
         binding = FragmentSubNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        NotificationsViewModel notificationsViewModel = new ViewModelProvider(this,
-                new NotificationViewModelFactory(this.requireActivity().getApplication(), filters))
-                .get(NotificationsViewModel.class);
+        notificationsViewModel = new NotificationsViewModel();
 
-        notificationsViewModel.getPetitions().observe(getViewLifecycleOwner(), petitions -> {
-            RecyclerView recyclerView = binding.petitionList;
-            recyclerView.setAdapter(new NotificationAdapter(petitions,  this.getContext()));
-        });
+        injectRecyclerView(filters);
 
         return root;
+    }
+
+    private void injectRecyclerView(Map<String, String> filters) {
+        if (filters.containsKey("ownerId")) {
+            notificationsViewModel.getReceivePetition(filters).observe(getViewLifecycleOwner(), petitions -> {
+                RecyclerView recyclerView = binding.petitionList;
+                recyclerView.setAdapter(new NotificationReceiveAdapter(petitions,  this.getContext()));
+            });
+        } else {
+            notificationsViewModel.getRequestPetition(filters).observe(getViewLifecycleOwner(), petitions -> {
+                RecyclerView recyclerView = binding.petitionList;
+                recyclerView.setAdapter(new NotificationRequestAdapter(petitions,  this.getContext()));
+            });
+        }
     }
 
     public static NotificationsSubFragment getInstance(Map<String, String> filters) {

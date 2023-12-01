@@ -20,7 +20,7 @@ import retrofit2.Response;
 public class PetitionRepository {
     private static final PetitionApiService petitionApiService = RetrofitService.getPetitionInterface();
     private static PetitionRepository repository;
-    private MutableLiveData<List<Petition>> ownPetitions = new MutableLiveData<>(placeholderProperties());
+    private MutableLiveData<List<Petition>> receivePetitions = new MutableLiveData<>(placeholderProperties());
     private MutableLiveData<List<Petition>> requestPetitions = new MutableLiveData<>(placeholderProperties());
     public static PetitionRepository getInstance(){
         if(repository == null) repository = new PetitionRepository();
@@ -28,13 +28,20 @@ public class PetitionRepository {
     }
 
     public MutableLiveData<List<Petition>> getPetitions(Map<String, String> filters) {
-        //Log.d("Properties Repository", filters.toString());
+        if (filters.containsKey("ownerId")) {
+            return petitions(receivePetitions, filters);
+        } else {
+            return petitions(requestPetitions, filters);
+        }
+    }
+
+    private MutableLiveData<List<Petition>> petitions(MutableLiveData<List<Petition>> petitionsList, Map<String, String> filters) {
         Call<List<Petition>> reviewsCall = petitionApiService.getPetitions(filters);
         reviewsCall.enqueue(new Callback<List<Petition>>() {
             @Override
             public void onResponse(Call<List<Petition>> call, Response<List<Petition>> response) {
                 Log.d("Petition request", response.body().toString());
-                ownPetitions.setValue(response.body());
+                petitionsList.setValue(response.body());
             }
 
             @Override
@@ -42,7 +49,7 @@ public class PetitionRepository {
                 Log.d("Log.DEBUG", "Me ñañe", t);
             }
         });
-        return ownPetitions;
+        return petitionsList;
     }
 
     private List<Petition> placeholderProperties(){

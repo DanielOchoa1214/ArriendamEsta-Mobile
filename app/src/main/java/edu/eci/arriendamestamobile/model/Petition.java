@@ -42,6 +42,14 @@ public class Petition {
         return content;
     }
 
+    public String getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
     public void setContent(String content) {
         this.content = content;
     }

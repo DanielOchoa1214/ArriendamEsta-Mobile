@@ -13,28 +13,27 @@ import java.util.List;
 
 import edu.eci.arriendamestamobile.R;
 import edu.eci.arriendamestamobile.model.Petition;
-import edu.eci.arriendamestamobile.model.Property;
 
-public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.PetitionItemViewHolder> {
+public class NotificationReceiveAdapter extends RecyclerView.Adapter<NotificationReceiveAdapter.PetitionRecieveItemViewHolder> {
 
     private List<Petition> petitionList;
     private Context context;
 
-    public NotificationAdapter(List<Petition> petitionList, Context context) {
+    public NotificationReceiveAdapter(List<Petition> petitionList, Context context) {
         this.petitionList = petitionList;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public PetitionItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PetitionRecieveItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View adapterLayout = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.petition_item, parent, false);
-        return new PetitionItemViewHolder(adapterLayout);
+                .inflate(R.layout.petition_recieve_item, parent, false);
+        return new PetitionRecieveItemViewHolder(adapterLayout);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PetitionItemViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PetitionRecieveItemViewHolder holder, int position) {
         Petition petition = petitionList.get(position);
         holder.authorId.setText(petition.getAuthorId());
         holder.propertyId.setText(petition.getPropertyId());
@@ -46,15 +45,15 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         return petitionList.size();
     }
 
-    public class PetitionItemViewHolder extends RecyclerView.ViewHolder {
+    public class PetitionRecieveItemViewHolder extends RecyclerView.ViewHolder {
 
         protected TextView authorId;
         protected TextView propertyId;
         protected TextView content;
 
-        public PetitionItemViewHolder(View view) {
+        public PetitionRecieveItemViewHolder(View view) {
             super(view);
-            authorId = view.findViewById(R.id.author_value);
+            authorId = view.findViewById(R.id.owner_value);
             propertyId = view.findViewById(R.id.property_value);
             content = view.findViewById(R.id.content_value);
         }

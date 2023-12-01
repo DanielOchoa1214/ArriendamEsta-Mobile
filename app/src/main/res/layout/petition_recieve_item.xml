@@ -13,7 +13,7 @@
         style="@style/subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/peticion"
+        android:text="@string/peticion_recibida"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -22,38 +22,44 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/author_value"
-        android:layout_width="wrap_content"
+        android:id="@+id/owner_value"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
         android:textColor="@color/black_soft"
         android:textSize="11sp"
         app:layout_constraintBottom_toTopOf="@+id/property_label"
-        app:layout_constraintStart_toStartOf="@+id/title_petition"
+        app:layout_constraintEnd_toStartOf="@id/barrier3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/author_label"
         app:layout_constraintTop_toBottomOf="@+id/author_label" />
 
     <TextView
         android:id="@+id/property_value"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
         android:textColor="@color/black_soft"
         android:textSize="11sp"
         app:layout_constraintBottom_toTopOf="@+id/content_label"
-        app:layout_constraintStart_toStartOf="@+id/author_value"
+        app:layout_constraintEnd_toStartOf="@id/barrier3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/owner_value"
         app:layout_constraintTop_toBottomOf="@+id/property_label" />
 
     <TextView
         android:id="@+id/content_value"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
         android:textColor="@color/black_soft"
         android:textSize="11sp"
+        app:layout_constraintEnd_toStartOf="@id/barrier3"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/property_value"
         app:layout_constraintTop_toBottomOf="@+id/content_label" />
 
@@ -95,19 +101,32 @@
         app:layout_constraintTop_toBottomOf="@id/price_barrier" />
 
     <Button
-        android:id="@+id/petition_details"
+        android:id="@+id/petition_accept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:text="Aceptar"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.854"
+        app:layout_constraintStart_toEndOf="@+id/title_petition"
+        app:layout_constraintTop_toBottomOf="@+id/title_petition" />
+
+    <Button
+        android:id="@+id/petition_deny"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Detalles"
-        android:textColor="@color/black_soft"
-        android:textSize="10sp"
+        android:text="Denegar"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/title_petition"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/petition_accept"
+        app:layout_constraintTop_toBottomOf="@+id/petition_accept" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/title_barrier"
@@ -121,7 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="author_value" />
+        app:constraint_referenced_ids="owner_value" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/price_barrier"
@@ -136,5 +155,12 @@
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="content_value" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        app:constraint_referenced_ids="petition_accept,petition_deny" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

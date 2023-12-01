@@ -65,5 +65,7 @@
     <string name="genero_placeholder">Genero:</string>
     <string name="confirmar_contrase_a_placeholder">Confirmar contraseña:</string>
     <string name="confirmar_contrase_a">Confirmar contraseña</string>
-    <string name="peticion">Petición</string>
+    <string name="peticion_recibida">Petición Recibida</string>
+    <string name="peticion_enviada">Petición Enviada</string>
+    <string name="buscar">Buscar</string>
 </resources>

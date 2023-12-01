@@ -1,5 +1,7 @@
 package edu.eci.arriendamestamobile.ui.fragments.notifications;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -28,7 +30,7 @@ public class NotificationViewPagerAdapter extends FragmentStateAdapter {
         Map<String, String> filters = new HashMap<>();
         switch (position){
             case 1:
-                filters.put("homeOwnerId", id);
+                filters.put("ownerId", id);
                 return NotificationsSubFragment.getInstance(filters);
             default:
                 filters.put("authorId", id);
