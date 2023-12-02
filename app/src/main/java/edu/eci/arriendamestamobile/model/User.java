@@ -4,13 +4,18 @@ import android.os.Build;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
+@Entity
 public class User {
-    private String id;
+    @PrimaryKey
+    @NonNull
+    private String id = "";
     private String name;
     private String email;
     private String phoneNumber;
@@ -97,6 +102,10 @@ public class User {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             this.age = ChronoUnit.YEARS.between(LocalDate.parse(birthDate.substring(0, 10)), LocalDate.now());
         }
+    }
+
+    public void setAge(long age) {
+        this.age = age;
     }
 
     @NonNull

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import edu.eci.arriendamestamobile.databinding.FragmentProfileReviewsBinding;
 import edu.eci.arriendamestamobile.ui.fragments.utils.ReviewsViewModelFactory;
+import edu.eci.arriendamestamobile.ui.fragments.utils.SessionInfo;
 
 public class ReviewFragment extends Fragment {
 
@@ -23,7 +24,7 @@ public class ReviewFragment extends Fragment {
         Bundle args = getArguments();
         if (args != null) {
             target = args.getString("target", "user");
-            id = args.getString("id", "u1");
+            id = args.getString("id", SessionInfo.SESSION_ID);
         }
         ReviewsViewModel reviewsViewModel = new ViewModelProvider(this,
                 new ReviewsViewModelFactory(this.requireActivity().getApplication(), target, id))

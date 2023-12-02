@@ -21,10 +21,16 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 import edu.eci.arriendamestamobile.R;
 import edu.eci.arriendamestamobile.databinding.ActivityLoginBinding;
 import edu.eci.arriendamestamobile.model.User;
+import edu.eci.arriendamestamobile.persistence.databases.AppDatabase;
+import edu.eci.arriendamestamobile.ui.activities.LaunchActivity;
 import edu.eci.arriendamestamobile.ui.activities.MainActivity;
+import edu.eci.arriendamestamobile.ui.fragments.utils.SessionInfo;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -39,7 +45,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         loginViewModel.getLoggedIn().observe(this, loggedIn -> {
-            if (loggedIn.getId() != null){
+            if (loggedIn.getName() != null){
+                Executor executor = Executors.newSingleThreadExecutor();
+                executor.execute(() -> {
+                    AppDatabase db = AppDatabase.getInstance(getApplicationContext());
+                    db.userDao().insertAll(loggedIn);
+                    SessionInfo.SESSION_ID = loggedIn.getId();
+                });
                 Intent toMain = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(toMain);
             } else {
