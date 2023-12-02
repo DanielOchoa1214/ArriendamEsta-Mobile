@@ -1,17 +1,22 @@
 package edu.eci.arriendamestamobile.ui.fragments.profile;
 
+import android.content.Context;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import java.util.logging.Level;
 
 import edu.eci.arriendamestamobile.model.User;
+import edu.eci.arriendamestamobile.persistence.databases.AppDatabase;
 import edu.eci.arriendamestamobile.repository.impl.UserRepository;
 import edu.eci.arriendamestamobile.repository.interfaces.UserApiService;
 import edu.eci.arriendamestamobile.repository.utils.RetrofitService;
+import edu.eci.arriendamestamobile.ui.fragments.utils.SessionInfo;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,7 +30,7 @@ public class ProfileViewModel extends ViewModel {
 
 
     public ProfileViewModel() {
-        getUserById("u1");
+        getUserById(SessionInfo.SESSION_ID);
     }
 
     public void getUserById(String id){

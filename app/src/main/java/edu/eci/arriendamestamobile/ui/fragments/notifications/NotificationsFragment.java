@@ -26,6 +26,7 @@ import edu.eci.arriendamestamobile.databinding.FragmentNotificationsBinding;
 import edu.eci.arriendamestamobile.ui.fragments.profile.ProfileViewPagerAdapter;
 import edu.eci.arriendamestamobile.ui.fragments.properties.PropertiesFragment;
 import edu.eci.arriendamestamobile.ui.fragments.properties.PropertyAdapter;
+import edu.eci.arriendamestamobile.ui.fragments.utils.SessionInfo;
 
 public class NotificationsFragment extends Fragment {
 
@@ -46,7 +47,7 @@ public class NotificationsFragment extends Fragment {
     private void setUpTabs() {
         TabLayout tabLayout = binding.notificationsTabs;
         ViewPager2 viewPager2 = binding.notificationViewPager;
-        NotificationViewPagerAdapter viewPagerAdapter = new NotificationViewPagerAdapter(this.requireActivity(), "u1");
+        NotificationViewPagerAdapter viewPagerAdapter = new NotificationViewPagerAdapter(this.requireActivity(), SessionInfo.SESSION_ID);
         viewPager2.setAdapter(viewPagerAdapter);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

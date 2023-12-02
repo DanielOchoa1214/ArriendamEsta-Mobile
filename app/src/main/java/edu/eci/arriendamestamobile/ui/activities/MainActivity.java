@@ -10,8 +10,13 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 import edu.eci.arriendamestamobile.R;
 import edu.eci.arriendamestamobile.databinding.ActivityMainBinding;
+import edu.eci.arriendamestamobile.persistence.databases.AppDatabase;
+import edu.eci.arriendamestamobile.ui.fragments.utils.SessionInfo;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        Executor executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> {
+            AppDatabase db = AppDatabase.getInstance(getApplicationContext());
+            SessionInfo.SESSION_ID = db.userDao().getAll().get(0).getId();
+        });
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each

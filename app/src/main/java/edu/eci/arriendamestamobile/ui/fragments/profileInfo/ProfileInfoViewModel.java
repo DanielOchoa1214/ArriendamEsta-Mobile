@@ -13,6 +13,7 @@ import edu.eci.arriendamestamobile.model.User;
 import edu.eci.arriendamestamobile.repository.impl.UserRepository;
 import edu.eci.arriendamestamobile.repository.interfaces.UserApiService;
 import edu.eci.arriendamestamobile.repository.utils.RetrofitService;
+import edu.eci.arriendamestamobile.ui.fragments.utils.SessionInfo;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,7 +26,7 @@ public class ProfileInfoViewModel extends ViewModel {
     private final UserRepository repository = UserRepository.getInstance();
 
     public ProfileInfoViewModel() {
-        getUserById("u1");
+        getUserById(SessionInfo.SESSION_ID);
     }
 
     public void getUserById(String id){
